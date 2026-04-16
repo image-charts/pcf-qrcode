@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="ImageCharts"
+           constructor="QRCodeGenerator"
+           version="1.0.0"
+           display-name-key="QRCodeGenerator"
+           description-key="Generates signed Image-Charts QR Codes for Power Apps"
+           control-type="standard">
+
+    <!-- ============================================================ -->
+    <!-- Authentication Properties -->
+    <!-- ============================================================ -->
+
+    <!-- Account ID Image-Charts Enterprise (optional if using Private Cloud) -->
+    <property name="accountId"
+              display-name-key="Account ID"
+              description-key="Your Image-Charts Enterprise Account ID (icac). Leave empty if using Private Cloud mode."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- Secret Key Image-Charts Enterprise (optional if using Private Cloud) -->
+    <property name="secretKey"
+              display-name-key="Secret Key"
+              description-key="Your Image-Charts Enterprise Secret Key for HMAC-SHA256 signing. Leave empty if using Private Cloud mode."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- Private Cloud Domain (alternative to accountId/secretKey) -->
+    <property name="privateCloudDomain"
+              display-name-key="Private Cloud Domain"
+              description-key="Your Image-Charts Private Cloud domain (e.g., charts.mycompany.com). When set, HMAC signing is not required."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- ============================================================ -->
+    <!-- QR Code Properties -->
+    <!-- ============================================================ -->
+
+    <!-- Data to encode in the QR Code -->
+    <property name="qrData"
+              display-name-key="QR Data"
+              description-key="The data to encode in the QR Code (e.g., a URL, text, or identifier)"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="true" />
+
+    <!-- Size of the QR Code -->
+    <property name="chartSize"
+              display-name-key="Chart Size"
+              description-key="The size of the QR Code in pixels, format: WIDTHxHEIGHT (e.g., 300x300). Default: 300x300"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- QR Code foreground color -->
+    <property name="qrForegroundColor"
+              display-name-key="QR Foreground Color"
+              description-key="QR Code foreground color in RRGGBB hex format (e.g., 000000 for black). Accepts with or without # prefix. Default: 000000"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- QR Code background color -->
+    <property name="qrBackgroundColor"
+              display-name-key="QR Background Color"
+              description-key="QR Code background color in RRGGBB hex format (e.g., FFFFFF for white). Accepts with or without # prefix. Default: FFFFFF"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- Error correction level -->
+    <property name="errorCorrectionLevel"
+              display-name-key="Error Correction Level"
+              description-key="QR Code error correction level: L (7%), M (15%), Q (25%), or H (30%). Default: M"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- ============================================================ -->
+    <!-- Advanced Options -->
+    <!-- ============================================================ -->
+
+    <!-- Advanced options (query string format) -->
+    <property name="advancedOptions"
+              display-name-key="Advanced Options"
+              description-key="Additional Image-Charts parameters in query string format: key=value&amp;key2=value2 (e.g., chof=.svg&amp;chld=H|4)"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- Show debug URL -->
+    <property name="showDebugUrl"
+              display-name-key="Show Debug URL"
+              description-key="Display the generated URL below the QR Code for debugging purposes"
+              of-type="TwoOptions"
+              usage="input"
+              required="false" />
+
+    <!-- Custom error placeholder -->
+    <property name="errorPlaceholderUrl"
+              display-name-key="Error Placeholder URL"
+              description-key="Custom image URL to display when the chart fails to load"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- ============================================================ -->
+    <!-- Output Properties -->
+    <!-- ============================================================ -->
+
+    <!-- Signed URL output -->
+    <property name="signedUrl"
+              display-name-key="Signed URL"
+              description-key="The full Image-Charts URL (signed if Enterprise mode). Read-only output."
+              of-type="SingleLine.Text"
+              usage="output" />
+
+    <!-- ============================================================ -->
+    <!-- Resources -->
+    <!-- ============================================================ -->
+
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="css/QRCodeGenerator.css" order="1" />
+    </resources>
+
+  </control>
+</manifest>

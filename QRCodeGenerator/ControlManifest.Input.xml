@@ -40,11 +40,12 @@
     <!-- ============================================================ -->
 
     <!-- Data to encode in the QR Code -->
+    <!-- usage="bound" is required for the component to appear in the Canvas Apps Code tab -->
     <property name="qrData"
               display-name-key="QR Data"
               description-key="The data to encode in the QR Code (e.g., a URL, text, or identifier)"
               of-type="SingleLine.Text"
-              usage="input"
+              usage="bound"
               required="true" />
 
     <!-- Size of the QR Code -->

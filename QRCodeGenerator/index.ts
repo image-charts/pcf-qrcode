@@ -34,6 +34,7 @@ export class QRCodeGenerator implements ComponentFramework.StandardControl<IInpu
 
   // State
   private _signedUrl: string = "";
+  private _qrData: string = "";
   private _notifyOutputChanged!: () => void;
   private _isLoading: boolean = false;
 
@@ -89,6 +90,7 @@ export class QRCodeGenerator implements ComponentFramework.StandardControl<IInpu
     const secretKey = context.parameters.secretKey?.raw || "";
     const privateCloudDomain = context.parameters.privateCloudDomain?.raw || "";
     const qrData = context.parameters.qrData?.raw || "";
+    this._qrData = qrData;
     const chartSize = context.parameters.chartSize?.raw || "300x300";
     const qrFgColor = normalizeColor(context.parameters.qrForegroundColor?.raw || undefined);
     const qrBgColor = normalizeColor(context.parameters.qrBackgroundColor?.raw || undefined);
@@ -286,9 +288,13 @@ export class QRCodeGenerator implements ComponentFramework.StandardControl<IInpu
 
   /**
    * getOutputs() - Returns output properties to Power Apps.
+   *
+   * Canvas Apps requires bound properties (qrData) to be returned here,
+   * otherwise the component is silently filtered out from the Code tab.
    */
   public getOutputs(): IOutputs {
     return {
+      qrData: this._qrData,
       signedUrl: this._signedUrl
     };
   }

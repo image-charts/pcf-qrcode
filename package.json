@@ -1,6 +1,6 @@
 {
   "name": "@image-charts/pcf-qrcode",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Image-Charts QR Code Generator for Microsoft Power Apps (PCF Component)",
   "main": "solution/ImageChartsQRCode.zip",
   "types": "src/QRCodeGenerator/index.d.ts",

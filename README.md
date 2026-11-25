@@ -83,8 +83,8 @@ QRCodeGenerator.privateCloudDomain = "charts.yourcompany.com"
 
 | Property | Type | Required | Default | Description |
 |----------|------|----------|---------|-------------|
-| `accountId` | Text | No* | - | Image-Charts Enterprise Account ID |
-| `secretKey` | Text | No* | - | Image-Charts Enterprise Secret Key |
+| `accountId` | Text | No* | - | Image-Charts paid plan account ID |
+| `secretKey` | Text | No* | - | Image-Charts paid plan secret key |
 | `privateCloudDomain` | Text | No* | - | Private Cloud domain (e.g., `charts.mycompany.com`) |
 | `qrData` | Text | **Yes** | - | Data to encode in the QR Code |
 | `chartSize` | Text | No | `300x300` | Size in pixels (format: `WIDTHxHEIGHT`) |
@@ -151,7 +151,7 @@ Label1.Text = QRCodeGenerator.signedUrl
 ### QR Code shows watermark
 
 - Verify your `accountId` and `secretKey` are correct
-- Check that your Enterprise subscription is active
+- Check that your paid plan is active
 - Enable `showDebugUrl` to inspect the generated URL
 
 ### QR Code doesn't update
